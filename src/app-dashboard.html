@@ -1,0 +1,31 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="shared-styles.html">
+
+<dom-module id="app-dashboard">
+  <template>
+    <div class="card">
+      <h1>Dashboard</h1>
+    </div>
+  </template>
+
+  <script>
+    class AppDashboard extends Polymer.Element {
+      static get is() { return 'app-dashboard'; }
+
+      closeDrawer() {
+        Application.closeDrawer();
+      }
+      
+      getMenuItems() {
+        return [
+          new MenuItem("A 1", () => alert("OK") ),
+          new MenuItem("A 2"),
+          new MenuItem("A 3"),
+          new MenuItem("A 4")
+        ]
+      }
+    }
+
+    window.customElements.define(AppDashboard.is,AppDashboard);
+  </script>
+</dom-module>

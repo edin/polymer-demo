@@ -1,0 +1,17 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="shared-styles.html">
+
+<dom-module id="app-login">
+  <template>
+    <div class="card">
+      <h1>Login</h1>
+    </div>
+  </template>
+
+  <script>
+    class AppLogin extends Polymer.Element {
+      static get is() { return 'app-login'; }
+    }
+    window.customElements.define(AppLogin.is, AppLogin);
+  </script>
+</dom-module>
