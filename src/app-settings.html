@@ -11,15 +11,6 @@
   <script>
     class AppSettings extends BasePage {
       static get is() { return 'app-settings'; }
-
-      getMenuItems() {
-        return [
-          new MenuItem("B 1"),
-          new MenuItem("B 2"),
-          new MenuItem("B 3"),
-          new MenuItem("B 4")
-        ]
-      }
     }
 
     window.customElements.define(AppSettings.is, AppSettings);

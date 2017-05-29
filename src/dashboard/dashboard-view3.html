@@ -1,0 +1,18 @@
+<link rel="import" href="../components/foundation.html">
+<link rel="import" href="../shared-styles.html">
+
+<dom-module id="dashboard-view3">
+  <template>
+    <div class="card">
+      <h1>Settings</h1>
+    </div>
+  </template>
+
+  <script>
+    class DashboardView3 extends BasePage {
+      static get is() { return 'dashboard-view3'; }
+    }
+
+    window.customElements.define(DashboardView3.is, DashboardView3);
+  </script>
+</dom-module>

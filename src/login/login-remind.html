@@ -1,0 +1,18 @@
+<link rel="import" href="../components/foundation.html">
+<link rel="import" href="../shared-styles.html">
+
+<dom-module id="login-remind">
+  <template>
+    <div class="card">
+      <h1>Login remind</h1>
+    </div>
+  </template>
+
+  <script>
+    class LoginRemind extends BasePage {
+      static get is() { return 'login-remind'; }
+    }
+
+    window.customElements.define(LoginRemind.is, LoginRemind);
+  </script>
+</dom-module>

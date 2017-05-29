@@ -1,0 +1,18 @@
+<link rel="import" href="../components/foundation.html">
+<link rel="import" href="../shared-styles.html">
+
+<dom-module id="login-view">
+  <template>
+    <div class="card">
+      <h1>Settings</h1>
+    </div>
+  </template>
+
+  <script>
+    class LoginView extends BasePage {
+      static get is() { return 'app-settings'; }
+    }
+
+    window.customElements.define(LoginView.is, LoginView);
+  </script>
+</dom-module>
