@@ -115,13 +115,11 @@
           </app-toolbar>
         </app-header>
 
-        <iron-pages on-iron-select="onIronSelect" id="pageSelector" 
-                    selected="[[page]]" attr-for-selected="name" fallback-selection="notfound"
-                    role="main" class="pages-content">
-          <app-dashboard name="dashboard"></app-dashboard>
-          <app-settings name="settings"></app-settings>
-          <app-login name="login"></app-login>
-          <app-notfound name="notfound"></app-notfound>
+        <iron-pages id="pageSelector" selected="[[page]]" attr-for-selected="name" fallback-selection="notfound" role="main" class="pages-content" on-iron-select="onIronSelect" >
+          <app-dashboard name="dashboard" router="{{subroute}}"></app-dashboard>
+          <app-settings  name="settings"  router="{{subroute}}"></app-settings>
+          <app-login     name="login"     router="{{subroute}}"></app-login>
+          <app-notfound  name="notfound"  router="{{subroute}}"></app-notfound>
         </iron-pages>
       </app-header-layout>
     </app-drawer-layout>

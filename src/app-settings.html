@@ -6,6 +6,14 @@
     <div class="card">
       <h1>Settings</h1>
     </div>
+
+    <app-route route="{{route}}" pattern="/settings/:subpage" data="{{routeData}}"></app-route>
+
+    <iron-pages selected="[[routeData.view]]" attr-for-selected="name" fallback-selection="view1" role="main">
+      <dashboard-view1 name="view1"></dashboard-view1>
+      <dashboard-view2 name="view2"></dashboard-view2>
+      <dashboard-view3 name="view3"></dashboard-view3>
+    </iron-pages>    
   </template>
 
   <script>

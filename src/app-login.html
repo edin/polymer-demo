@@ -6,6 +6,13 @@
     <div class="card">
       <h1>Login</h1>
     </div>
+
+    <app-route route="{{route}}" pattern="/login/:subpage" data="{{routeData}}"></app-route>
+
+    <iron-pages selected="[[routeData.view]]" attr-for-selected="name" fallback-selection="view" role="main">
+      <login-view   name="view"></dashboard-view1>
+      <login-remind name="remind"></dashboard-view2>
+    </iron-pages>
   </template>
 
   <script>
