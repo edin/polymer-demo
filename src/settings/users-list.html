@@ -1,0 +1,36 @@
+<dom-module id="settings-list">
+    <script src="../components/Data.js"></script>
+
+    <template>
+        <div class="card">
+            <h1>Users</h1>
+
+            <table>
+                <template is="dom-repeat" items="{{items}}">
+                    <tr>
+                        <td>[[item.first_name]]</td>
+                        <td>[[item.last_name]]</td>
+                        <td>[[item.email]]</td>
+                        <td>
+                            <a href="/settings/edit/[[item.id]]">Edit</a>
+                        </td>
+                    </tr>
+                </template>
+            </table>
+
+        </div>
+    </template>
+
+    <script>
+        class SettingsList extends Polymer.Element {
+            static get is() {
+                return 'settings-list';
+            }
+            constructor() {
+                super();
+                this.items = Users;
+            }
+        }
+        window.customElements.define(SettingsList.is, SettingsList);
+    </script>
+</dom-module>

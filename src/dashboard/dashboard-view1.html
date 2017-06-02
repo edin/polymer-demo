@@ -1,18 +1,15 @@
-<link rel="import" href="../components/foundation.html">
-<link rel="import" href="../shared-styles.html">
-
 <dom-module id="dashboard-view1">
   <template>
     <div class="card">
-      <h1>Settings</h1>
+      <h1>Dashboard 1</h1>
     </div>
   </template>
 
   <script>
-    class DashboardView1 extends BasePage {
-      static get is() { return 'dashboard-view1'; }
-    }
+      class DashboardView1 extends Polymer.Element {
+          static get is() { return 'dashboard-view1'; }
+      }
 
-    window.customElements.define(DashboardView1.is, DashboardView2);
+      window.customElements.define(DashboardView1.is, DashboardView1);
   </script>
 </dom-module>

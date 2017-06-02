@@ -1,0 +1,32 @@
+<dom-module id="settings-edit">
+  <template>
+    <div class="card">
+
+      <div class="card">
+        <h1>Edit</h1>
+        <paper-input label="First Name" value="{{model.first_name}}"></paper-input>
+        <paper-input label="Last Name" value="{{model.last_name}}"></paper-input>
+        <paper-input label="Email" value="{{model.email}}"></paper-input>
+      </div>
+
+      <paper-button on-tap="saveHandler">Save</paper-button>
+    </div>
+  </template>
+
+  <script>
+    class SettingsEdit extends Polymer.Element {
+      static get is() { return 'settings-edit'; }
+      static get proprties() {
+          return {
+              model: Object
+          }
+      }
+
+      saveHandler() {
+          window.history.pushState({}, null, '/settings/list');
+          window.dispatchEvent(new CustomEvent('location-changed'));
+      }
+    }
+    window.customElements.define(SettingsEdit.is, SettingsEdit);
+  </script>
+</dom-module>

@@ -1,39 +1,43 @@
-<link rel="import" href="../bower_components/polymer/polymer-element.html">
-<link rel="import" href="shared-styles.html">
-
 <dom-module id="app-dashboard">
-  <template>
-    <div class="card">
-      <h1>Dashboard</h1>
-    </div>
+    <link rel="import" href="dashboard/dashboard-view1.html">
+    <link rel="import" href="dashboard/dashboard-view2.html">
+    <link rel="import" href="dashboard/dashboard-view3.html">
 
-    <app-route route="{{route}}" pattern="/dashboard/:subpage" data="{{routeData}}"></app-route>
+    <template>
 
-    <iron-pages selected="[[routeData.view]]" attr-for-selected="name" fallback-selection="view1" role="main">
-      <dashboard-view1 name="view1"></dashboard-view1>
-      <dashboard-view2 name="view2"></dashboard-view2>
-      <dashboard-view3 name="view3"></dashboard-view3>
-    </iron-pages>
-  </template>
+        <div class="card">
+            <h1>Dashboard</h1>
+        </div>
 
-  <script>
-    class AppDashboard extends Polymer.Element {
-      static get is() { return 'app-dashboard'; }
+        <app-route route="{{route}}" pattern="/dashboard/:page" data="{{routeData}}" tail="{{subroute}}"
+                   active="{{active}}"></app-route>
 
-      closeDrawer() {
-        Application.closeDrawer();
-      }
+        <a name="a" href="/dashboard/view1">Page 1</a>
+        <a name="b" href="/dashboard/view2">Page 2</a>
+        <a name="c" href="/dashboard/view3">Page 3</a>
 
-      getMenuItems() {
-        return [
-          new MenuItem("A 1", () => alert("OK")),
-          new MenuItem("A 2"),
-          new MenuItem("A 3"),
-          new MenuItem("A 4")
-        ]
-      }
-    }
+        <div style="border:1px solid red;">
+            View: {{routeData.page}}
+            View: {{active}}
 
-    window.customElements.define(AppDashboard.is, AppDashboard);
-  </script>
+            <iron-pages selected="[[routeData.page]]" attr-for-selected="name" fallback-selection="view1" role="main">
+                <dashboard-view1 name="view1"></dashboard-view1>
+                <dashboard-view2 name="view2"></dashboard-view2>
+                <dashboard-view3 name="view3"></dashboard-view3>
+            </iron-pages>
+        </div>
+    </template>
+
+    <script>
+        class AppDashboard extends Polymer.Element {
+            static get is() {
+                return 'app-dashboard';
+            }
+
+            closeDrawer() {
+                Application.closeDrawer();
+            }
+        }
+        window.customElements.define(AppDashboard.is, AppDashboard);
+    </script>
 </dom-module>

@@ -1,0 +1,23 @@
+<dom-module id="settings-create">
+  <template>
+    <div class="card">
+
+      <div class="card">
+        <h1>Create</h1>
+        <paper-input label="First Name" value="{{model.first_name}}"></paper-input>
+        <paper-input label="Last Name" value="{{model.last_name}}"></paper-input>
+        <paper-input label="Email" value="{{model.email}}"></paper-input>
+      </div>
+
+      <paper-button on-tap="saveHandler">Save</paper-button>
+    </div>
+  </template>
+
+  <script>
+    class SettingsCreate extends Polymer.Element {
+      static get is() { return 'settings-create'; }
+    }
+
+    window.customElements.define(SettingsCreate.is, SettingsCreate);
+  </script>
+</dom-module>

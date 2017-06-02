@@ -1,0 +1,29 @@
+<dom-module id="app-settings">
+    <link rel="import" href="settings/users-list.html">
+    <link rel="import" href="settings/users-edit.html">
+    <link rel="import" href="settings/users-create.html">
+
+    <template>
+        <app-route route="{{route}}" pattern="/settings/:page" data="{{routeData}}" tail="{{subroute}}"
+                   active="{{active}}"></app-route>
+        <app-route route="{{route}}" pattern="/settings/edit/:id" data="{{editRoute}}"></app-route>
+
+        <a href="settings/list"><paper-button >List</paper-button></a>
+        <a href="settings/create"><paper-button >Create</paper-button></a>
+
+        <iron-pages selected="[[routeData.page]]" attr-for-selected="name" fallback-selection="list" role="main">
+            <settings-list name="list"></settings-list>
+            <settings-edit name="edit" id="{{editRoute.id}}"></settings-edit>
+            <settings-create name="create"></settings-create>
+        </iron-pages>
+    </template>
+
+    <script>
+        class AppSettings extends Polymer.Element {
+            static get is() {
+                return 'app-settings';
+            }
+        }
+        window.customElements.define(AppSettings.is, AppSettings);
+    </script>
+</dom-module>
