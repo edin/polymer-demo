@@ -1,10 +1,11 @@
-<dom-module id="settings-list">
+<dom-module id="user-list">
     <script src="../components/Data.js"></script>
 
     <template>
-        <div class="card">
-            <h1>Users</h1>
+        <style include="shared-styles"></style>
 
+        <nx-card>
+            <h1>Users</h1>
             <table>
                 <template is="dom-repeat" items="{{items}}">
                     <tr>
@@ -12,25 +13,24 @@
                         <td>[[item.last_name]]</td>
                         <td>[[item.email]]</td>
                         <td>
-                            <a href="/settings/edit/[[item.id]]">Edit</a>
+                            <a href="/user/edit/[[item.id]]">Edit</a>
                         </td>
                     </tr>
                 </template>
             </table>
-
-        </div>
+        </nx-card>
     </template>
 
     <script>
-        class SettingsList extends Polymer.Element {
+        class UserList extends Polymer.Element {
             static get is() {
-                return 'settings-list';
+                return 'user-list';
             }
             constructor() {
                 super();
                 this.items = Users;
             }
         }
-        window.customElements.define(SettingsList.is, SettingsList);
+        window.customElements.define(UserList.is, UserList);
     </script>
 </dom-module>

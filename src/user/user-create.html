@@ -1,0 +1,19 @@
+<dom-module id="user-create">
+  <template>
+    <nx-card>
+      <h1>User</h1>
+      <paper-input label="First Name" value="{{model.first_name}}"></paper-input>
+      <paper-input label="Last Name"  value="{{model.last_name}}"></paper-input>
+      <paper-input label="Email"      value="{{model.email}}"></paper-input>
+      <paper-button on-tap="saveHandler">Save</paper-button>
+    </nx-card>
+  </template>
+
+  <script>
+    class UserCreate extends Polymer.Element {
+      static get is() { return 'user-create'; }
+    }
+
+    window.customElements.define(UserCreate.is, UserCreate);
+  </script>
+</dom-module>

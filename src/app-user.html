@@ -1,0 +1,29 @@
+<dom-module id="app-users">
+    <link rel="import" href="user/user-list.html">
+    <link rel="import" href="user/user-edit.html">
+    <link rel="import" href="user/user-create.html">
+
+    <template>
+        <app-route route="{{route}}" pattern="/user/:page" data="{{routeData}}" tail="{{subroute}}"
+                   active="{{active}}"></app-route>
+        <app-route route="{{route}}" pattern="/user/edit/:id" data="{{editRoute}}"></app-route>
+
+        <a href="user/list"><paper-button >List</paper-button></a>
+        <a href="user/create"><paper-button >Create</paper-button></a>
+
+        <iron-pages selected="[[routeData.page]]" attr-for-selected="name" fallback-selection="list" role="main">
+            <user-list name="list"></user-list>
+            <user-edit name="edit" id="{{editRoute.id}}"></user-edit>
+            <user-create name="create"></user-create>
+        </iron-pages>
+    </template>
+
+    <script>
+        class AppUsers extends Polymer.Element {
+            static get is() {
+                return 'app-users';
+            }
+        }
+        window.customElements.define(AppUsers.is, AppUsers);
+    </script>
+</dom-module>
